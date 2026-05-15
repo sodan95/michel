@@ -1,0 +1,939 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0068)https://web.archive.org/web/20260215182737/http://michaeltaylor.org/ -->
+<html style="--wm-toolbar-height: 1px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./index_files/athena.js.download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app54.us.archive.org';v.server_ms=1044;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./index_files/bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./index_files/wombat.js.download" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="./index_files/ruffle.js.download"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://michaeltaylor.org/","20260215182737","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1771180057");
+</script>
+<link rel="stylesheet" type="text/css" href="./index_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./index_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+<style type="text/css">
+<!--
+.code_section
+   {
+   font-family: Courier New Bold, Courier;
+   padding-left: 50pt;
+   padding-right: 50pt;
+   }
+-->
+</style>
+
+<meta name="google-site-verification" content="0i1Mz3swwJd6oR3f2xaCa-cNpvW8xgizEa56k0c6b8U">
+
+<title>ASIC Clouds, Dark Silicon, Tiled Processors, Specialization, Vision and Bitcoin</title>
+<meta name="description" content="ASIC Cloud, Dark Silicon, Bitcoin, ASIC Cloud and chip design research."> 
+<meta name="keywords" content="ASIC Cloud, dark silicon, Dark Silicon, bitcoin, Bitcoin,mike,taylor,cse mbt,michael taylor, manycore, tiled, architecture, many-core, multicore, compiler, VLSI, chip, Raw processor, MIT, UCSD, SD-VBS, vision processors, conservation cores, vision benchmarks, green droid, GreenDroid, greendroid">
+
+<style type="text/css">
+  BODY {margin-right: 38pt}
+  BODY {font-family: "Verdana", "Times"}
+</style>
+
+<!--[if IE]>
+<STYLE TYPE="text/css">
+  BODY {font-size: 15px}
+</STYLE>
+<![endif]-->
+</head>
+<body bgcolor="#ffffff" text="#000000" link="#0000FF" alink="#FF2020" vlink="#aF101F"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr; height: 1px;" toolbar-mode="auto"><template shadowrootmode="closed"><div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;" class="">
+<div id="donato" style="position:relative;width:100%;height:0;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20260215182737/http%3A//michaeltaylor.org/" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside" style="display: none;">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;" nav="async">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="https://web.archive.org/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0"></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="https://web.archive.org/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://michaeltaylor.org/" onfocus="this.focus();this.select();" style="flex:1;" autocomplete="off"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20260215182737"><input type="submit" value="Go">
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;"><a class="t" href="https://web.archive.org/web/*/http://michaeltaylor.org/" title="See a list of every capture for this URL">264 captures</a><div class="r" title="Timespan for captures of this URL">3 Apr 2002 - 18 Feb 2026</div></div>
+        <div class="k">
+          <a href="https://web.archive.org/web/20191201000000/http://michaeltaylor.org/" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="775" height="27" border="0"></canvas>
+            <div class="yt" style="display: none; width: 25px; height: 27px; left: 575px;"></div><div class="mt" style="display: none; width: 2px; height: 27px; left: 598px;"></div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20251216172138/http://michaeltaylor.org/" title="17:21:38 Dec 16, 2025">Dec</a></td>
+            <td class="c" id="displayMonthEl" title="You are here: 18:27:37 Feb 15, 2026">Feb</td>
+            <td class="f" nowrap="nowrap">Mar</td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20260212121350/http://michaeltaylor.org/" title="12:13:50 Feb 12, 2026"><span class="ta"></span></a></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 18:27:37 Feb 15, 2026">15</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20260218150619/http://michaeltaylor.org/" title="15:06:19 Feb 18, 2026"><span class="ta"></span></a></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20250209060507/http://michaeltaylor.org/" title="06:05:07 Feb 9, 2025">2025</a></td>
+            <td class="c" id="displayYearEl" title="You are here: 18:27:37 Feb 15, 2026">2026</td>
+            <td class="f" nowrap="nowrap">2027</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/#" title="Share via My Web Archive">
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web"></span>
+        </span>
+                <a class="xxs" href="https://help.archive.org/help/category/the-wayback-machine/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="https://web.archive.org/web/20260215182737/http://web.archive.org/screenshot/http://michaeltaylor.org/" id="wm-screenshot" title="screenshot" style="visibility: hidden;">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/#" data-url="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/#" data-url="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/#expand"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/save-page-now-outlinks)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/save-page-now-outlinks" target="_new"><span class="wm-title">Save Page Now Outlinks</span></a></div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading"></div>
+    </div>
+    </div>
+  </div></div></div><link rel="stylesheet" type="text/css" href="./index_files/banner-styles.css"><link rel="stylesheet" type="text/css" href="./index_files/iconochive.css"><div class="wb-autocomplete-suggestions "></div></template>
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20260215182737/http://michaeltaylor.org/</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(775,27,25,2,"web","http://michaeltaylor.org/","20260215182737",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3","https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+
+<script language="JavaScript" type="text/javascript">
+<!--
+// PRELOADING IMAGES
+if (document.images) {
+ img_on =new Image();  img_on.src ="pics/kremlin-logo-3.png";
+ img_off=new Image();  img_off.src="pics/kremlin-logo.png"; 
+}
+
+function handleOver() { 
+ if (document.images) document.imgName.src=img_on.src;
+}
+
+function handleOut() {
+ if (document.images) document.imgName.src=img_off.src;
+}
+
+//-->
+</script>
+
+
+<!-- b><font size="+4"><a href="http://darksilicon.org">UCSD Center for Dark Silicon</a></font></b> -->
+
+<table>
+<tbody><tr>
+<td>
+
+<table>
+<tbody><tr>
+<td>
+<!-- <IMG src="pics/mbt-portrait-480.jpg" align=left alt="Michael Taylor (CSE MBT)]"> -->
+
+<!-- IMG src="pics/mbt_photo_14_z_480.jpg" align=left alt="Dark Silicon (MBT)"--> &nbsp;&nbsp;&nbsp;
+<img border="1" src="./index_files/mbt_new_photo_13_320.jpg" align="left" alt="Dark Silicon (MBT)"> &nbsp;&nbsp;&nbsp;
+
+<!-- IMG src="pics/wordle_2010.png" height=450 align = left alt="[Michael Taylor]"-->
+
+</td><td align="center">
+<br>
+<br>
+<b><font size="+2" color="#112200">Professor<br> Michael B. Taylor</font>  <br></b>
+<font color="#000077">
+
+
+<font size="+1"><a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/research_team.html">Bespoke Silicon Group</a></font><br>
+<font size="+1"><a href="https://web.archive.org/web/20260215182737/http://darksilicon.org/">Center for Dark Silicon</a></font><br>
+<font size="+1">Paul Allen School of Computer Science and Engineering<br>
+<font size="+1">Dept of Electrical Engineering<br>
+<font size="+1"><b>University of Washington</b>, Seattle</font><br>
+
+</font>
+<hr width="80%">
+
+<table>
+<tbody><tr><td align="left">
+<script type="text/javascript">
+var a1 = "p";
+var a4 = "@";
+var a2 = "rof";
+var a5 = "gmail.com";
+var a3 = ".taylor";
+var i;
+
+for (i = 0; i < 5000; i++) {
+ if (i == 1999) {
+    document.write(a1+a2+a3+a4+a5);
+ } 
+}
+</script>prof.taylor@gmail.com
+</td><td>
+<font size="-1"><b>professional correspondence</b></font><br> 
+</td></tr><tr>
+<td>
+	<script type="text/javascript">
+var a1 = "prof";
+var a4 = "uw";
+var a2 = "mbt";
+var a5 = ".edu";
+var a3 = "@";
+var i;
+
+for (i = 0; i < 5000; i++) {
+ if (i == 1999) {
+    document.write(a1+a2+a3+a4+a5);
+ } 
+}
+	
+</script>profmbt@uw.edu
+</td><td>
+<font size="-1"><b>official UW business (course-related, funding, admin, rec letters, etc)</b></font><br> 
+</td></tr><tr>
+<td>
+	CSE 564 (Paul Allen Center)
+</td><td>
+<font size="-1"><b>office</b></font>
+</td></tr><tr>
+<td>
+<font color="555555">
+
++1 use email</font>
+</td><td>
+<font size="-1"><b>phone</b></font><br> 
+</td></tr><tr>
+<td>
+<a href="https://web.archive.org/web/20260215182737/https://www.youtube.com/playlist?list=PLD1QnhK1caR3IrAtVAd1-leMkus7dVy6a"><img src="./index_files/yt_logo_rgb_light.png" width="150"></a>
+</td><td>
+<font size="-1"><b></b></font><br>
+
+</td></tr></tbody></table>
+
+</font></font></td><td>
+</td><td>
+</td></tr></tbody></table>
+<br>
+<table width="95%" align="left" bgcolor="#DDDDEE" border="1" cellpadding="0" cellspacing="0">
+<tbody><tr><td width="25%" align="center"><a href="https://web.archive.org/web/20260215182737/https://bsg.ai/" style="text-decoration:none"><font size="+2"><b>Research Team</b></font></a>
+    </td><td width="20%" align="center"><a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/teaching.html" style="text-decoration:none"><font size="+2"><b>Teaching</b></font></a>
+    </td><td width="18%" align="center"><a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/service.html" style="text-decoration:none"><font size="+2"><b>Service</b></font></a>
+    </td><td width="32%" align="center"><a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/ucsd-programming-team.html" style="text-decoration:none"><font size="+2"><b>Programming Team</b></font></a>
+</td></tr></tbody></table>
+
+<br><br>
+
+<br><b>NEWSFLASH: 
+<br>I am recruiting heavily for <b>both graduate students and postdocs</b> for my team at UW.
+<br>Interested PhD/MS students and Postdocs should apply to either or both departments and drop me a note (2 chances, 1 great advisor!)</b>
+<br>
+
+<br><h2><font color="#000077">Bio</font></h2>
+
+I have been a professor in the <a href="https://web.archive.org/web/20260215182737/http://www.cs.washington.edu/">Paul Allen School of Computer Science and
+Engineering</a> and <a href="https://web.archive.org/web/20260215182737/http://www.ee.washington.edu/">Dept. of Electrical Engineering</a> at the <a href="https://web.archive.org/web/20260215182737/http://www.uw.edu/">University of Washington, Seattle</a> since September 2017.
+I was a Visiting Research Scientist at <a href="https://web.archive.org/web/20260215182737/http://google.com/">Google and YouTube</a>, working on datacenter accelerators, 
+and before that I was a tenured professor at the <a href="https://web.archive.org/web/20260215182737/http://cseweb.ucsd.edu/">University of California San Diego Computer Science and Engineering Department</a> from 2005 to 2016. <br>  <br>
+
+I
+received a PhD in Electrical Engineering and Computer Science from <a href="https://web.archive.org/web/20260215182737/http://www.mit.edu/">MIT</a>, and
+my research centers around computer architecture but spans the stack from VLSI to compilers.
+I was lead architect of the 16-core <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Tiled_Microprocessors_MBT_Thesis.pdf">MIT Raw tiled
+multicore processor</a>, one of the earliest multicore processors, which was commercialized into the Tilera
+TILE64 architecture. Recently, in 2017, Intel Skylake SP has adopted our scalable mesh of cores architecture that we proposed. 
+	
+I co-authored the earliest published architecture research on <a href="https://web.archive.org/web/20260215182737/http://darksilicon.org/">dark silicon</a>, the result of the end of Dennard scaling,
+including <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores.pdf">a paper that derives the <i>utilization wall</i> that causes dark silicon</a>,
+and in that paper proposed specialization as the primary way this probably would be attacked.
+To demonstrate these ideas, we proposed a prototype massively specialized processor called
+<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/GreenDroid_IEEE_Micro_2011.pdf">GreenDroid</a>, and in that work claimed that the
+future chips would start incorporating exponentially growing numbers of accelerators, a hypothesis which
+has come true for Apple iPhone chips, as shown <a href="https://web.archive.org/web/20260215182737/http://vlsiarch.eecs.harvard.edu/research/accelerators/die-photo-analysis/">in this innovative study</a> by David Brooks's team at Harvard.
+	
+I also wrote a paper that establishes the definitive taxonomy, <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_dark_silicon_horsemen_dac_2012.pdf">the Four Horsemen</a>, for the semiconductor industry's approaches
+to dealing with the problem, and a follow-on paper on the <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_landscape_ds_ieee_micro_2013.pdf">Landscape of the Dark Silicon Design Regime</a>.
+My research on dark silicon fed into the ITRS 2008 report that led Mike Mueller of ARM to coin the term "dark silicon".
+More recently, I wrote <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/bitcoin_taylor_cases_2013.pdf">the first academic paper on Bitcoin mining chips</a> and in this paper proposed that
+this was evidence of a totally new model for chip development: rather than the old model of traditional chip companies figuring and selling general-purpose 
+compute chips that were targeted to a wide audience and not specific to a particular application domain; we would have
+"a new age of hardware innovation tailored to
+emerging application domains—an Age of Bespoke Silicon". Effectively
+their former customers would drive the creation of "bespoke silicon chips" for their specific application needs.
+
+<br>
+<br>
+<div id="asiccloud"></div>
+ This prediction has since come true; every hyperscale datacenter company (i.e. Facebook, Alibaba, Google, Microsoft, ...) has their own domain specific chips under development. Immediately after that paper, from 2013-2016, we worked on the concept of <i>ASIC Clouds</i>.  In 2016, my team published the first paper on <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ASIC_Cloud_ISCA_2016_Proceedings.pdf">ASIC Clouds</a>. 
+	We make the case that datacenters full of ASICs are in our near future, and show a prototypical 
+	<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ASIC_Cloud_ISCA_2016_Proceedings.pdf">ASIC Cloud</a> architecture, how they should be designed, and 
+	how they save TCO. We proposed neural network ASIC Clouds
+	<a href="https://web.archive.org/web/20260215182737/https://csetechrep.ucsd.edu/Dienst/UI/2.0/Describe/ncstrl.ucsd_cse/CS2016-1016">before</a> Google announced their TPU, and 
+	also proposed the use of video transcoding clouds for YouTube, an approach which Google adopted subsequent to the publication of our paper and <a href="https://web.archive.org/web/20260215182737/https://dl.acm.org/doi/abs/10.1145/3445814.3446723">disclosed in ASPLOS 2021.</a> 
+	This paper has a nice overview and retrospective of the work <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ASIC_Cloud_CACM_2020.pdf">Communications of the ACM ASIC Cloud paper</a>. 
+	This paper was also selected to be a ACM Research Highlight; on  average only two papers per year out of all of computer architecture publications 
+	in the world!
+<br><br>
+<b> In 2017, we published the first architecture paper on <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Khazraee_ASIC_Cloud_NRE_ASPLOS_2017_final.pdf">NRE</a>, non-recurring engineering expense.</b> We show how minimizing NRE can be more important for ASIC Cloud feasibility than optimizing accelerator speedup or energy efficiency. We present the first ever architect's model for NRE, using current industry parameters (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Khazraee_ASIC_Cloud_NRE_ASPLOS_2017_final.pdf">paper</a>) (<a href="https://web.archive.org/web/20260215182737/https://www.youtube.com/watch?v=DzCO3qx61XY">youtube talk</a>), and opening up a new area of research. With the rise of specialization and the end of Moore's law, driving down the cost of design will surely be an important driver of future research.
+<br><br>
+ Also in 2017, we designed the architecture and wrote the RTL for the open source 511-core RISC-V compatible Celerity chip,
+	and together with Michigan taped it out in TSMC 16nm technology. The chip broke the world record for all silicon chips on the planet for Coremark performance
+	and also beat the world record for single-chip RISC-V chip performance by over 100X.
+<br><br>
+Returning the favor for Michigan, we taped out and brought up the Michigan OuterSpace sparse matrix chip, in TSMC 40nm technology.
+<br><br>
+<b>More recently, at UW my team taped out and brought up two complex Global Foundries 12nm chips -- on the same day! This
+	is unprecedented for a university.</b>
+  <br><br>
+  One is for the DARPA POSH BlackParrot RISC-V multicore project. 
+<br><br>The other is for the DARPA SDH-funded HammerBlade RISC-V GP-GPU project.
+<br>
+<br>Both designs are fully open source.
+<br>
+
+<!-- <br><br>
+ I was a rebellious undergraduate in the <a href="http://www.dartmouth.edu">Dartmouth College</a> CS department,
+where I pulled together a team of students to build my first machine, the PM IV. It had 72 chips
+and over 5000 hand-wired connections. -->
+
+<br><br> I occasionally help companies and other legal professionals evaluate their patent portfolios,
+and provide advice to companies leveraging the Tilera TILE64 architecture, or that are developing cryptocurrency hardware. I have broad expertise in hardware and software, and on the <b>Bitcoin cryptocurrency</b>.
+My research is funded primarily by the National Science Foundation (NSF), including the <b>Secure and Trustworthy Cyberspace Program</b>, and <a href="https://web.archive.org/web/20260215182737/http://futurearchs.org/">DARPA/SRC's C-FAR and ADA</a> centers.
+
+<br><br> Between the gaps at school, I worked on Apple's NuKernel microkernel, and co-wrote the first version
+of Connectix Virtual PC, an x86-to-PowerPC dynamic translation engine, which was acquired by Microsoft. I also
+contributed to the <a href="https://web.archive.org/web/20260215182737/http://www.chipwrights.com/">ChipWrights Visual Signal Processor</a> in its
+earliest stages.
+<br>
+<br>I received the NSF CAREER Award in 2009 and tenure in 2012.
+<br>
+<br>My research sponsors: 
+<table width="60%" border="0">
+<tbody><tr>
+  <td width="200"><a href="https://web.archive.org/web/20260215182737/http://www.src.org/program/starnet/c-far/"><img width="300" src="./index_files/CFar.jpg" alt="C-FAR Logo"></a> 
+  </td><td width="200"><a href="https://web.archive.org/web/20260215182737/http://nsf.gov/"><img width="200" src="./index_files/NSF_logo.jpg" alt="NSF Logo"></a> 
+  </td><td width="200"><img width="200" src="./index_files/DARPA_logo.jpg" alt="DARPA Logo"> 
+
+</td></tr><tr>
+  <td width="200"><img width="200" src="./index_files/nokia-logo.jpg" alt="NSF logo">
+  </td><td width="200"><img width="200" src="./index_files/intel.png" alt="Intel Logo">
+  </td><td width="200"><img width="100%" src="./index_files/AMD.png" alt="AMD logo">  
+</td></tr><tr>
+  <td width="200"><img width="300" src="./index_files/qualcomm-logo.png" alt="Qualcomm logo">
+  </td><td width="200"><img width="100" src="./index_files/NXP_logo.png" alt="NXP logo">
+</td></tr></tbody></table>
+<br>
+<br>
+
+<div id="darksilicon"></div>
+<br><h2><a href="https://web.archive.org/web/20260215182737/http://darksilicon.org/" style="text-decoration: none"><font color="#000077">UW Center for Dark Silicon</font></a></h2>
+<hr width="100%">
+<br>I direct the 
+<b> <a href="https://web.archive.org/web/20260215182737/http://darksilicon.org/">UW Center for Dark Silicon</a></b> and the <a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/research_team.html">Bespoke Silicon Group.</a>
+<br>
+<br> <a href="https://web.archive.org/web/20260215182737/http://greendroid.ucsd.edu/">My colleagues and I</a> were among the first to demonstrate
+the existence of a <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores.pdf">utilization wall</a>
+which says that with the progression of Moore's Law, the percentage of a chip that we can actively use within a chip's power budget is dropping <i>exponentially</i>! The remaining silicon
+that must be left unpowered is now referred to as <a href="https://web.archive.org/web/20260215182737/http://darksilicon.org/">Dark Silicon</a>.
+
+<br><br>Our research on <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores.pdf">Conservation Cores</a> and <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/GreenDroid_IEEE_Micro_2011.pdf">GreenDroid</a> proposes new architectures that exploit dark silicon. Our paper on the <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_dark_silicon_horsemen_dac_2012.pdf">The Four Horsemen</a> (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/DAC_DaSi_Horsemen_2012_Slides_Final.pdf">slides</a>) overviews the landscape of architectural approaches to addressing dark silicon.
+
+In addition to researching architectures for dark silicon, I look more broadly at sources of under-utilization
+in current day chips, spanning from
+ a) power limitations because of poor CMOS scaling, b) overly large software engineering costs for parallelizing programs for multicore chips, and 
+c) lack of parallel application domains. 
+
+<br><br>My research attacks each of these problems by 1) reinventing processor design to make use of dark silicon, 2) utilizing existing cores better through better parallel software engineering tools and 3) finding new parallel application classes to put cores to work:
+
+<table>
+<tbody><tr> 
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td><td>
+  <table>
+  <tbody><tr>
+   <td><a href="https://web.archive.org/web/20260215182737/http://greendroid.ucsd.edu/"><img width="200" src="./index_files/greendroid-small.png" alt="GreenDroid"></a>
+   </td><td>
+   </td><td><br><br><br>The <a href="https://web.archive.org/web/20260215182737/http://greendroid.ucsd.edu/"><i>GreenDroid</i></a> Mobile Applications Processor, which employs
+      <i><a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores.pdf">Conservation Cores</a></i> to fight dark silicon. 
+
+      <table width="75%">
+       <tbody><tr>
+       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       </td><td><br>Our <i><a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores.pdf">ASPLOS 2010</a></i> paper is one of the earliest
+       peer-reviewed architecture papers to have a cogent description of the <i>utilization wall</i> that
+       causes the Dark Silicon problem, and to propose specialization as an architectural solution. 
+<br><br>
+       </td></tr><tr>
+       <td>
+       </td><td>Our <i><a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/HotChips2010-Goulding-final.pdf">Hotchips 2010</a></i> work 
+       <i>GreenDroid: A Mobile Application Processor for a Future of Dark Silicon</i> flushes out this proposal,
+       and is quite possibly the first published academic use of the term <a href="https://web.archive.org/web/20260215182737/http://darksilicon.org/">Dark Silicon</a>. This was
+       followed up with
+       this <i><a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/GreenDroid_IEEE_Micro_2011.pdf">March 2011 IEEE Micro paper</a></i>. (Here is the Hotchips talk on <a href="https://web.archive.org/web/20260215182737/http://www.youtube.com/watch?v=oZ2K7OGD_jQ#t=1h20m38s">youtube</a>.) <br><br>
+       </td></tr><tr><td>
+       </td><td>Our  work, <i>Is Dark Silicon Useful? Harnessing the Four Horsemen of the Coming Dark Silicon Apocalypse</i>, which appeared in <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_dark_silicon_horsemen_dac_2012.pdf">DAC and DaSi 2012</a>, and is followed by a paper in IEEE Micro 2013, is the first paper to overview the landscape of architectural approaches that try to address the dark silicon problem. We describe the four horsemen -- four approaches to dealing with dark silicon, each with deep-seated challenges but also unique capabilities. See the <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/DAC_DaSi_Horsemen_2012_Slides_Final.pdf">slides</a> for a very entertaining presentation on the shrinking, dim, specialized, and deux ex machina horsemen.<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <img src="./index_files/four_horsemen.png" alt="Four Horseman">
+    </td></tr></tbody></table>
+
+  </td></tr><tr>
+   <td><br><br>
+   <a href="https://web.archive.org/web/20260215182737/http://kremlin.ucsd.edu/" onmouseover="handleOver();return true;" onmouseout="handleOut(); return true;"> 
+   <img name="imgName" height="200" src="./index_files/kremlin-logo.png" alt="Kremlin Logo"></a>
+
+     <!--
+      <PRE>
+      $> make CC=kremlin-cc
+      $> ./tracking data
+      $> kremlin tracking &-&-personality=openmp
+
+      File (lines)             Self-P  Cov.(%)
+      1   imageBlur.c (49-58)      145.3   9.7
+      2   imageBlur.c (37-45)      145.3   8.7
+      3   getInterpPatch.c (26-35)  25.3   8.86
+      4   calcSobel_dX.c (59-68)   126.2   8.1 
+      5   calcSobel_dX.c (46-55)   126.2   8.1 
+
+      ... ...                      ...    ... 
+
+      </PRE>
+     -->
+
+     </td><td>
+     </td><td> <a href="https://web.archive.org/web/20260215182737/http://kremlin.ucsd.edu/">Kremlin</a>, a tool that, given a serial program, 
+     tells you which regions to parallelize.
+
+     <table width="75%">
+     <tbody><tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     </td><td>
+     <br>
+     To create Kremlin, we developed a novel dynamic analysis, <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/pldi-garcia-kremlin-2011.pdf"><i>hierarchical critical path analysis</i></a>, to detect parallelism across nested regions of the program,
+     which connects to a <i>parallelism planner</i> which evaluates many potential parallelization to figure out the best way for the user to parallelize the target program.
+
+     </td></tr></tbody></table>
+  </td></tr><tr>
+   <td><br><br><br><img width="200" src="./index_files/stingray.jpg" alt="Stingray Picture">
+   </td><td> &nbsp;&nbsp;&nbsp;&nbsp;
+   </td><td> the <a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/vision/">San Diego Vision Benchmark Suite</a>, which distills the emerging computer vision application class into a collection
+of nine benchmarks written in a research-friendly style. This work was co-advised by <a href="https://web.archive.org/web/20260215182737/http://vision.ucsd.edu/">Prof. Serge Belongie</a>, a member of UC San Diego's top-notch vision faculty. <br><br>More recently, we have developed <a href="https://web.archive.org/web/20260215182737/http://cortexsuite.org/">CortexSuite</a>, which extends SD-VBS with a large suite of machine learning and other applications that traditionally the brain has been better at that computers.
+ </td></tr></tbody></table>
+     <br>
+
+
+     <!-- - the <a href="http://parallel.ucsd.edu/Projects/88A9158B-6330-4557-B208-459C7534E525.html">Photon</a> MATLAB manycore compiler,
+     <br><br> -->
+     <br>
+     <br>
+</td></tr></tbody></table>
+
+
+<div id="top"></div>
+<br><h2><font color="#000077">Greatest Hits</font> <font size="-1">(<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/#publications">Click to view all publications</a>)</font></h2>
+<hr width="100%">
+<table>
+<tbody><tr><td width="115"></td><td>
+<ol>
+	<li><b>ReaLLM: A Trace-Driven Framework for Rapid Simulation of Large-Scale LLM Inference</b>
+        <br>Huwan Peng, Scott Davidson, C.-J. Richard Shi and Michael Taylor. In <i>ASAP 2025</i>.
+        <br>
+	<br>
+	</li><li><b>Evaluating Ruche Networks: Physically Scalable, Cost-Effective, Bandwidth-Flexible NoCs</b>
+	<br> Dai Cheol Jung and Michael Taylor. In <i> ISCA 2025</i>. 	
+	<br>
+		</li><li><b>Scalable, Programmable and Dense: The HammerBlade Open-Source RISC-V Manycore.</b>
+	<br> Dai Cheol Jung, Max Ruttenberg, Paul Gao, Scott Davidson, Daniel Petrisko, Kangli Li, Aditya K Kamath, Lin Cheng, Shaolin Xie, Peitian Pan, Zhongyuan Zhao, Zichao Yue, Bandhav Veluri, Sripathi Muralitharan, Adrian Sampson, Andrew Lumsdaine, Zhiru Zhang, Christopher Batten, Mark Oskin, Dustin Richmond, Michael Bedford Taylor.
+	<br> in <i>ISCA 2024</i>. (<a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/papers/HB_ISCA_2024_Camera_Ready_Final.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/bib/all.html#Jung_ISCA_2024">bib</a>)
+	<br>
+	<br>
+	
+	        </li><li><b>RETROSPECTIVE: ASIC Clouds: Specializing the Datacenter.</b>
+	<br> by Michael Taylor.
+	<br> in <i>ISCA@50 Retrospective: 1996-2020, June 2023</i> (<a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/papers/Magaki_2016_ASIC_Retro.pdf">pdf</a>)
+	<br>
+	<br>
+
+	</li><li><b>RETROSPECTIVE: Evaluation of the RAW Microprocessor: An Exposed-Wire-Delay Architecture for ILP and Streams.</b>
+	<br> by Michael Taylor, David Wentzlaff, Saman Amarasinghe and Anant Agarwal
+	<br> in <i>ISCA@50 Retrospective: 1996-2020, June 2023</i> (<a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/papers/Taylor_2004_Evaluation_Retro.pdf">pdf</a>)
+	<br>
+	<br>
+
+</li><li><b>NoC Symbiosis.</b>
+<br>Daniel Petrisko, Chun Zhao, Scott Davidson, Paul Gao, Dustin Richmond and Michael Bedford Taylor.<br>
+in <i> NOCS 2020</i>.
+(<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/NOC_Symbiosis.pdf">pdf</a>) 	
+<br><br>
+		 
+</li><li><b>Ruche Networks: Wire-Maximal, No-Fuss NoCs.</b>
+  <br>Dai Cheol Jung, Scott Davidson, Chun Zhao, Dustin Richmond, Michael Bedford Taylor.
+  <br>in <i>NOCS 2020</i>
+  (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Jung_NOCS_2020_Ruche_Networks.pdf">pdf</a>)
+  <br>
+  <br>
+
+
+  </li><li><b>ASIC Clouds: Specializing the Datacenter for Planet-Scale Applications.</b> Michael Bedford Taylor, Luis Vega, Moein Khazraee, Ikuo Magaki, Scott Davidson, Dustin Richmond. In <i>Communications of the ACM</i>, July 2020. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ASIC_Cloud_CACM_2020.pdf">pdf</a>)(<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#ASIC_Clouds_CACM_2020">bib</a>)
+    <br><br>
+
+  </li><li><b> BlackParrot: An Agile Open-Source RISC-V Multicore for Accelerator SoCs. </b> Daniel Petrisko, Farzam gilani, Mark Wyse, Dai Cheol Jung, Scott Davidson, Paul Gao, Chun Zhao, Zahra Azad, Sadullah Canakci, Bandhav Veluri, Tavio Guarino, Ajay Joshi, Mark Oskin and Michael Bedford Taylor. In <i>IEEE Micro</i>, July/August 2020. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/BlackParrot_IEEE_Micro_2020.pdf">pdf</a>)(<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#BlackParrot_IEEE_Micro_2020">bib</a>)<br><br>
+
+    
+</li><li><b>The Celerity Open-Source 511-Core RISC-V Tiered Accelerator Fabric.</b>
+<br>by Scott Davidson, Shaolin Xie, Chris Torng, Khalid Al-Hawaj, Austin Rovinski, Tuto Ajayi, Luis Vega, Chun Zhao, Ritchie Zhao, Steve Dai, Aporva Amarnath, Bandhav Veluri, Paul Gao, Anuj Rao, Gai Liu, Rajesh K. Gupta, Zhiru Zhang, Ronald Dreslinski, Christopher Batten, Michael Bedford Taylor.
+<br><i>IEEE Micro</i>, March/April 2018. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Davidson_IEEE_Micro_Celerity_2018.pdf">pdf</a>)(<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Davidson_Celerity_IEEE_Micro">bib</a>)
+<br><i>Proceedings of Hotchips, 2017</i>.  (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/HC29.21.430-Celerity-RISC-V-Davidson-UCSD.pdf">pdf</a>)(<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Ajayi_Celerity_Hotchips_2017">bib</a>)
+<br>
+<br>
+</li><li><b>BaseJump STL: SystemVerilog needs a Standard Template Library for Hardware Design.</b>
+<br> Michael B. Taylor.
+<br> <i>Design Automation Conference</i> (<i>DAC</i>), June 2018. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Taylor_DAC_BaseJump_STL_2018.pdf">pdf</a>)(<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_BaseJump_DAC_2018">bib</a>)(<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/BaseJump_STL_DAC_Slides.pdf">talk</a>)
+<br>
+<br>
+
+</li><li><b>The Evolution of Bitcoin Hardware.</b>
+<br><i>This is a great overview of Bitcoin mining hardware evolution, a follow-on to my CASES 2013 paper, it updates that groundbreaking paper to 2017.</i>
+<br> Michael Bedford Taylor.
+<br><i>IEEE Computer, Sept 2017</i>.(<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Taylor_Bitcoin_IEEE_Computer_2017.pdf">pdf</a>)(<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_Bitcoin_IEEE_Computer_2017">bib</a>)
+<br>
+<br>
+</li><li><b>Specializing a Planet's Computation: ASIC Clouds.</b>
+<br> <i>Read this to get a great overview of ASIC Clouds.</i>
+<br>Moein Khazraee, Luis Vega, Ikuo Magaki and Michael Bedford Taylor.
+<br><i>IEEE Micro, May/June 2017</i>.
+(<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/micro_asic_cloud.pdf">pdf</a>)(<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Khazraee_ASIC_Cloud_IEEE_MICRO_2017">bib</a>)
+<br><br>
+</li><li><b>Moonwalk: NRE Optimization in ASIC Clouds or, accelerators will use old silicon.</b>
+<br> <i>Cite this for the first paper to give a detailed NRE model<br> and show how NRE can be optimized/evaluated for ASIC Clouds.</i>
+<br>Moein Khazraee, Lu Zhang, Luis Vega, and Michael Bedford Taylor.
+<br><i>ASPLOS 2017</i>. 
+(<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Khazraee_ASIC_Cloud_NRE_ASPLOS_2017_final.pdf">paper</a>) (<a href="https://web.archive.org/web/20260215182737/https://www.youtube.com/watch?v=DzCO3qx61XY">youtube talk</a>) (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ASPLOS_2017_ASIC_Cloud_NRE_Talk.pdf">talk</a>)(<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Khazraee_ASIC_Cloud_NRE_ASPLOS_2017">bib</a>).
+<br>
+<br>
+</li><li><b>ASIC Clouds: Specializing the Datacenter.</b>
+<br> <i>Cite this for the first paper that proposes ASIC Clouds <br>and defines the canonical ASIC Cloud architecture. We predicted the Google TPU before it was announced, and also forecast the deployment of video transcoding clouds, which Facebook announced in March 2019. Selected as a 2016 Top Picks Paper.</i>
+<br> Ikuo Magaki, Moein Khazraee, Luis Vega Gutierrez, and Michael Bedford Taylor.
+<br><i>International Symposium on Computer Architecture (ISCA)</i>, June 2016. <br> (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ASIC_Cloud_ISCA_2016_Proceedings.pdf">paper</a>) (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Magaki_ASIC_Cloud">bib</a>) <br> (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ISCA_2016_ASIC_Cloud_Talk_No_Anim.pdf">teaser talk; contains only part of paper</a>)<br>(<a href="https://web.archive.org/web/20260215182737/https://csetechrep.ucsd.edu/Dienst/UI/2.0/Describe/ncstrl.ucsd_cse/CS2016-1016">5/8/16 Tech Report</a>)<br><br>
+
+
+</li><li><b>Bitcoin and The Age of Bespoke Silicon.</b><br><i>(Read this for the first-ever academic publication on Bitcoin mining hardware,<br> a stirring account of the Bitcoin mining community that <br> heralds a new age of
+hardware innovation tailored to emerging application domains)</i>
+    <br> Michael Bedford Taylor
+<br> <i>
+
+International Conference on Compilers, Architecture and Synthesis for Embedded Systems </i> (<i>CASES</i>), Sept 2013. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Bitcoin-Taylor-CASES-2013-talk.pdf">Talk</a>) (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/bitcoin_taylor_cases_2013.pdf">Paper</a>) (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_Bitcoin_CASES_2013">bib</a>)<br>
+<br>
+
+</li><li><b> A Landscape of the New Dark Silicon Design Regime.</b>
+<br> Michael Taylor.
+<br><i>IEEE Micro</i>, Sep/Oct 2013.  (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_landscape_ds_ieee_micro_2013.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_Landscape_IEEE_Micro_2013">bib</a>)
+<br><i>Design Automation and Test in Europe (DATE)</i>, April 2014. <a href="https://web.archive.org/web/20260215182737/https://www.youtube.com/watch?v=e25IwXZNJ6M">DATE 2014 talk</a>. 
+<br> <i> Berkeley E3S Symposium, Oct 2013.</i><br>
+<br>
+
+
+</li><li><b>Is Dark Silicon Useful?<br> <i>Harnessing the Four Horsemen of the Coming Dark Silicon Apocalypse</i></b> <br><i>(Cite this for first synthesis of approaches to attacking Dark Silicon.)</i> 
+<br> Michael B. Taylor
+<br> Design Automation Conference (<i>DAC</i>), June 2012. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_dark_silicon_horsemen_dac_2012.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_Dark_Silicon_Horsemen_DAC_2012">bib</a>) (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/DAC_DaSi_Horsemen_2012_Slides_Final.pdf">slides</a>).
+<br>
+<i>Also presented at the Dark Silicon Workshop (DaSi) 2012.</i>
+<br>
+<br>
+
+</li><li><b> Conservation Cores: Reducing the Energy of Mature Computations</b>. <br><i>(Cite this for first peer-reviewed Utilization Wall &amp; Dark Silicon Analysis. <br> Also for heterogeneity as a solution to dark silicon problem.)</i>
+<br> Ganesh Venkatesh, John Sampson, Nathan Goulding, Saturnino Garcia, Slavik Bryskin, Jose Lugo-Martinez, Steven Swanson, and Michael Bedford Taylor.
+<br> <i> Architectural Support for Programming Languages and Operating Systems (ASPLOS)</i>, March 2010. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores_talk.pdf">talk pdf</a>, <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores_talk.ppt">talk ppt</a>)   (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Venkatesh_CCore_ASPLOS_2010">bib</a>) 
+<br><br>
+
+</li><li><b> GreenDroid: A Mobile Application Processor for a Future of Dark Silicon.</b> <i> <br>(Cite this for dark silicon's impact on multicore scaling. <br>Also, for proposing the use of HLS-generated accelerators as a way to scale energy efficiency in the mobile space, a path that Apple and Qualcomm have since taken.)</i>
+<br> Nathan Goulding, Jack Sampson, Ganesh Venkatesh, Saturnino Garcia, Joe Auricchio, Jonathan Babb, Michael Bedford Taylor and Steven Swanson.
+<br> <i>Proceedings of HOTCHIPS</i>, August 2010. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/HotChips2010-Goulding-final.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/hotchips-2010-goulding-final.pptx">talk ppt</a>)   (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Goulding_GreenDroid_HOTCHIPS_2010">bib</a>) (<a href="https://web.archive.org/web/20260215182737/http://www.youtube.com/watch?v=oZ2K7OGD_jQ#t=1h20m38s">youtube</a>)<br><br>
+
+
+</li><li><b> The GreenDroid Mobile Application Processor: An Architecture for Silicon's Dark Future.</b>
+<br> Nathan Goulding-Hotta, Jack Sampson, Ganesh Venkatesh, Saturnino Garcia, Joe Auricchio, Po-Chao Huang, Manish Arora, Siddhartha Nath, Jonathan Babb,
+ Steven Swanson, and Michael Bedford Taylor.
+<br> <i>IEEE Micro</i>, March 2011. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/GreenDroid_IEEE_Micro_2011.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Goulding_GreenDroid_Micro_2011">bib</a>)
+<br><br>
+
+</li><li><b> Kremlin: Rebooting and Rethinking <font face="courier">gprof</font> for the Multicore Age </b>  (Cite this for Kremlin.)
+<br> (aka <i>Automatic Parallelism Planning and Discovery with Kremlin</i>)
+<br> Saturnino Garcia, Donghwan Jeon, Chris Louie, and Michael Bedford Taylor.
+<br>Programming Language Design and Implementation (<i>PLDI</i>), June 2011. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/pldi_2011_kremlin_garcia.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Garcia_Kremlin_PLDI_2011">bib</a>)
+<br>
+<br>
+
+</li><li><b>SD-VBS: The San Diego Vision Benchmark Suite</b>. 
+<br> Sravanthi Kota Venkata, Ikkjin Ahn, Donghwan Jeon, Anshuman Gupta, Christopher Louie, Saturnino Garcia, Serge Belongie, and Michael Bedford Taylor.
+<br><i>IEEE International Symposium on Workload Characterization</i> (<i>IISWC</i>), October 2009. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/SD-VBS-Final.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/http://cseweb.ucsd.edu/~mbtaylor/vision">Download SD-VBS</a>)  (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Venkata_VBS_IISWC_2009">bib</a>)
+<br><br>
+
+
+</li><li><b>Evaluation of the Raw Microprocessor: <br>An Exposed-Wire-Delay Architecture for ILP and Streams</b>
+<br> by Michael B Taylor, Walter Lee, Jason Miller, David Wentzlaff, Ian Bratt, Ben Greenwald, Henry Hoffmann, Paul Johnson, Jason Kim, James Psota, Arvind Saraf, Nathan Shnidman, Volker Strumpen,   Matt Frank, Saman Amarasinghe, and Anant Agarwal.
+<br><i>Proceedings of the International Symposium on Computer Architecture</i> (<i>ISCA</i>), June 2004. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/raw_isca_2004.pdf">pdf</a>) (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_ISCA_2004">bib</a>)
+<br><br>
+
+
+</li><li><b>A 16-issue multiple-program-counter microprocessor<br>
+with point-to-point scalar operand network</b>,
+
+<br>by Michael B Taylor, Jason Kim, Jason Miller,
+David Wentzlaff, Fae Ghodrat, Ben Greenwald, Henry Hoffman, Paul Johnson,
+Walter Lee,  Arvind Saraf, Nathan Shnidman, Volker Strumpen, Saman Amarasinghe,
+and Anant Agarwal.
+<br><i>Proceedings of the IEEE International Solid-State
+Circuits Conference</i> (<i>ISSCC</i>), February 2003.  (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/isscc_2003_paper.pdf">pdf</a>)  (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_ISSCC_2003">bib</a>)
+<br><br>
+
+
+
+</li><li><b>The Raw Microprocessor:<br> A Computational Fabric for Software Circuits and General Purpose Programs</b>,
+<br>by Michael B Taylor, Jason Kim, Jason Miller, David Wentzlaff, Fae Ghodrat, Ben Greenwald, Henry Hoffman, Jae-Wook
+Lee, Paul Johnson, Walter Lee, Albert Ma, Arvind Saraf, Mark Seneski, Nathan Shnidman, Volker Strumpen, Matt Frank, Saman Amarasinghe and Anant Agarwal.
+<br><i>IEEE Micro</i>, March/April 2002. (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ieee-micro-2002.pdf">pdf</a>)  (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_Micro_2002">bib</a>)
+<br><br>
+
+</li><li><b>Scalar Operand Networks</b>,
+<br> by Michael B Taylor, Walter Lee, Saman Amarasinghe, and Anant Agarwal.
+<br><i>IEEE Transactions on Parallel and Distributed Systems (Special Issue on On-chip Networks)</i> (<i>TPDS</i>), February 2005.
+
+<!-- (<A HREF="http://cseweb.ucsd.edu/papersson-tm.pdf">pdf</A>) -->
+(<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_son_ieee_tpds.pdf">pdf</a>)
+(Appendix <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_son_ieee_tpds_appendix.pdf">pdf</a>)   (<a href="https://web.archive.org/web/20260215182737/http://bsg.ai/bib/all.html#Taylor_SON_TPDS_2005">bib</a>)
+<br><br>
+</li></ol>
+</td></tr></tbody></table>
+
+
+<h2><font color="#000077">Recent News</font> </h2>
+<hr>
+<div id="news"></div>
+<table width="100%" cellpadding="6">
+
+<tbody><tr><td><b>May 2023</b></td><td>An <a href="https://web.archive.org/web/20260215182737/https://www.geekwire.com/2023/univ-of-washington-jostling-for-a-slice-of-rd-funding-from-the-chips-and-science-act/">GeekWire article</a> on some of Prof. Taylor's CHIPS Act fund raising activities.</td>
+</tr><tr><td><b>April 2020</b></td><td>Coindesk writes an article leveraging the graphs from my <a href="https://web.archive.org/web/20260215182737/https://www.coindesk.com/rise-of-asics-bitcoin-mining-history">Bitcoin mining evolution paper</a>.
+
+</td></tr><tr><td><b>April 2020</b></td><td>Closing quote in this <a href="https://web.archive.org/web/20260215182737/https://cacm.acm.org/magazines/2020/5/244325-will-risc-v-revolutionize-computing/fulltext?fbclid=IwAR2gT41IiQM9WUnP4gmgcUrgEhra2rE4I9MjwJjbmOchw26Ij0v6-WMauPQ">Communications of the ACM article on RISC-V</a>: Says Michael Taylor, an associate professor in the School of Computer Science and Engineering at the University of Washington in Seattle, "There are no serious technical or practical issues with RISC-V. It will eventually supplant x86 and ARM as the primary instruction set for microprocessors. It will fundamentally change the computing world."
+
+</td></tr><tr><td><b>July 2019</b></td><td>Twin tapeouts in 12nm of the BlackParrot RISCV multicore chip and also the HammerBlade ML/Graph supercomputer chip! I think it's safe to say that no other university research group in the world has taped out two 12nm chips in a single day, and especially not of this complexity! ;-) 
+  
+</td></tr><tr><td><b>May 2018</b></td><td>Released first version of Luis Vega's excellent <a href="https://web.archive.org/web/20260215182737/http://bjump.org/f1">Amazon F1 Accelerator Tutorial</a>.
+
+</td></tr><tr><td><b>Mar 2018</b></td><td>Received a Google Faculty Research Award! <a href="https://web.archive.org/web/20260215182737/https://news.cs.washington.edu/2018/03/26/allen-school-faculty-and-alumni-recognized-with-google-faculty-research-awards/">link</a>.
+
+	</td></tr><tr><td><b>Feb 2018</b></td><td>Quoted in Bloomberg! <a href="https://web.archive.org/web/20260215182737/https://www.bloomberg.com/news/articles/2018-02-12/bitcoin-chip-battle-brewing-behind-hut-8-s-canadian-listing">link</a>.	
+</td></tr><tr><td><b>Feb 2018</b></td><td>Received an Albaba AIR Research Award! <a href="https://web.archive.org/web/20260215182737/https://102.alibaba.com/fund/proposalResult.htm">link</a>.
+
+</td></tr><tr><td><b>Dec 2017</b></td><td>Interviewed by Wired for this article on <a href="https://web.archive.org/web/20260215182737/https://www.wired.com/story/bitcoin-global-warming/">Global Bitcoin mining energy usage</a>.
+</td></tr><tr><td><b>Aug 2017</b></td><td>Interviewed in this article about Bitmain (the primary Chinese bitcoin mining chip company) moving into ML datacenter chips, an act foreshadowed by our work on <a href="https://web.archive.org/web/20260215182737/https://qz.com/1053799/chinas-bitmain-dominates-bitcoin-mining-now-it-wants-to-cash-in-on-artificial-intelligence/">ASIC Clouds</a>.
+
+</td></tr><tr><td><b>Apr 2017</b></td><td>We taped out Celerity, a fully open source RISC-V chip with neural network accelerator that contains 511 RISC-V cores, in 16 nm TSMC technology. UCSD, Cornell and Michigan teamed together on this ambitious project and we completed the entire design and tapeout in less than a year. The architecture of this chip was published at Hotchips 2017, and was jointly presented by one student each from Cornell, Michigan, and my team, the Bespoke Silicon Group.
+
+</td></tr><tr><td><b>Mar 2017</b></td><td>Check out my guest <a href="https://web.archive.org/web/20260215182737/http://sigarch.org/"> sigarch</a>  blog post on the <b><a href="https://web.archive.org/web/20260215182737/https://www.sigarch.org/geocomp-comm-borg/">Geocomputer Computer and the Commercial Borg.</a></b> This is the lead article in a series of post by top computer architects across the planet! Local copy: <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Geocomputers_Taylor_SIGARCH_2017.pdf">pdf</a>.
+
+</td></tr><tr><td><b>Jan 2017</b></td><td>Sabbatical at Google in their datacenter accelerator group (until September)!
+</td></tr><tr><td><b>Dec 2016</b></td><td><b>Our second ASIC tapeout, a ten-core manycore RISC-V processor, sent to the fab on Dec 22!
+
+</b></td></tr><tr><td><b>Dec 2016</b></td><td><b> Our ASIC Cloud ISCA paper was accepted as an IEEE Micro Top Pick. This means it was one of the 12 best computer architecture papers out of the hundreds published in 2016!</b>
+
+</td></tr><tr><td><b>Nov 2016</b></td><td> Gave a talk at the fifth RISC-V  workshop on some of <a href="https://web.archive.org/web/20260215182737/https://youtu.be/IeowP8jFBq0">our open source activities</a>.
+</td></tr><tr><td><b>Nov 2016</b></td><td> Our ASPLOS paper was accepted. Congrats Moein, Lu, and Luis!
+</td></tr><tr><td><b>Oct 2016</b></td><td><b>Our first ASIC tapeout, a high speed communications interface chip, sent to the fab!
+
+</b></td></tr><tr><td><b>Jun 2016</b></td><td><b> <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ASIC_Cloud_ISCA_2016_Proceedings.pdf">ASIC Cloud paper</a></b> is out at ISCA. This <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ASIC_Cloud_ISCA_2016_Proceedings.pdf">paper</a> is <b>as big of a deal as our groundbreaking 2010 ASPLOS paper<br> that showed the utilization wall that causes dark silicon, and proposed specialization as the solution.</b><br> We show how datacenters full of ASIC accelerators are the next step for computer architecture,<br> and show the entire TCO analysis, and a prototypical architecture and methodology for designing 4 kinds of ASIC clouds. 
+</td></tr><tr><td><b>Aug 2016</b></td><td>Invited Talk at DARPA / MTO CHIPS Workshop!
+
+
+</td></tr><tr><td><b>Jun 2016</b></td><td>See my talk, <a href="https://web.archive.org/web/20260215182737/https://youtu.be/VXx0cK3wOKc?t=3h14m18s"> on open source hardware at the Architecture 2030 workshop.</a> (<a href="https://web.archive.org/web/20260215182737/http://arch2030.cs.washington.edu/slides/arch2030_michael_taylor.pdf">slides</a>).
+</td></tr><tr><td><b>May 2016</b></td><td><a href="https://web.archive.org/web/20260215182737/https://csetechrep.ucsd.edu/Dienst/UI/2.0/Describe/ncstrl.ucsd_cse/CS2016-1016">Tech report on ASIC Cloud released.</a>
+</td></tr><tr><td><b>Jan 2016</b></td><td>NSF has funded our $3M proposal, joint with Rosario Gennaro (CUNY), Abhi Shelat (UVa), Siddhartha Garg (NYU), Mariana Raykova (Yale), and my group (Bespoke Silicon Group). This is exciting!
+</td></tr><tr><td><b>Sept 2015</b></td><td>Presented <a href="https://web.archive.org/web/20260215182737/http://cortexsuite.org/">CortexSuite</a> to DARPA StarNet SONIC center at UIUC!
+</td></tr><tr><td><b>Sept 2015</b></td><td>Official <a href="https://web.archive.org/web/20260215182737/http://kremlin.ucsd.edu/">release of Kremlin</a> is finally out thanks to Prof. Sat Garcia!!
+</td></tr><tr><td><b>Apr 29 2015</b></td><td>Final interview about possibilities for dark silicon in <a href="https://web.archive.org/web/20260215182737/http://semiengineering.com/one-on-one-dark-possibilities">this article</a>.
+</td></tr><tr><td><b>Apr 14 2015</b></td><td>Interview about Dark Servers in <a href="https://web.archive.org/web/20260215182737/http://semiengineering.com/one-on-one-dark-silicon-2/">this article</a> in <i>Semiconductor Engineering</i>.
+</td></tr><tr><td><b>Apr 9 2015</b></td><td>One on one interview about Dark Silicon in <a href="https://web.archive.org/web/20260215182737/http://semiengineering.com/one-on-one-dark-silicon/">this article</a> in <i>Semiconductor Engineering</i>.
+</td></tr><tr><td><b>Feb 2015</b></td><td>MBT serves as General Chair of HPCA 2015!
+</td></tr><tr><td><b>Feb 2015</b></td><td>Quoted discussing 14nm  in <a href="https://web.archive.org/web/20260215182737/http://semiengineering.com/talking-about-dark-silicon/">this article</a> in <i>Semiconductor Engineering</i>.
+</td></tr><tr><td><b>Jan 2015</b></td><td>Our work on Dark Silicon and GreenDroid is extensively 
+discussed in <a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/semi_engineering_darker_side.pdf">this article</a> at <i>Semiconductor Engineering</i>.
+
+</td></tr><tr><td><b>Nov 2014</b></td><td>My work on Bitcoin referenced in this <a href="https://web.archive.org/web/20260215182737/http://www.coindesk.com/bitcoin-mining-can-longer-ignore-moores-law/">coindesk article</a> on Moore's Law.
+
+</td></tr><tr><td><b>Sep 2014</b></td><td>More of my work related to Bitcoin references in <a href="https://web.archive.org/web/20260215182737/http://www.coindesk.com/cryptocurrency-miners-turn-exotic-cooling-systems-competition-heats/">this coindesk article on immersion cooling</a> with a few quotes from me.
+</td></tr><tr><td><b>June 2014</b></td><td>My views on a DAC panel quoted and discussed in Brian Fuller's article in semiengineering.com on <a href="https://web.archive.org/web/20260215182737/http://semiengineering.com/computer-visions-enormous-challenges-ahead/">challenges for Computer Vision chips</a>.
+</td></tr><tr><td><b>June 2014</b></td><td> Interviewed in <a href="https://web.archive.org/web/20260215182737/https://bitcoinmagazine.com/13774/government-bans-professor-mining-bitcoin-supercomputer/">this article in Bitcoin magazine</a>.
+    </td></tr><tr><td><b>May 2014</b></td><td><a href="https://web.archive.org/web/20260215182737/http://www.kornferry.com/institute/what-hll-bitcoin-fools-gold-or-real-thing">Article in Korn Ferry Institute</a> featuring my CASES paper.
+</td></tr><tr><td><b>May 2014</b></td><td><a href="https://web.archive.org/web/20260215182737/http://randomwalker.info/teaching/spring-2014-privacy-technologies/state-attack.pdf">This work on state attacks on Bitcoin</a> employs the models in my 2013 CASES paper on Bitcoin mining.
+</td></tr><tr><td><b>Mar 2014</b></td><td>My Bitcoin mining paper work referenced in <a href="https://web.archive.org/web/20260215182737/http://www.allied-control.com/publications/Full_Version_Bitcoin_2-Phase_Immersion_Cooling_and_the_Implications_for_HPC.pdf">Electronic Cooling Magazine</a>.
+</td></tr><tr><td><b>Mar 2014</b></td><td> See my <a href="https://web.archive.org/web/20260215182737/https://www.youtube.com/watch?v=e25IwXZNJ6M">E3S Talk, entitled "A Landscape of the New Dark Silicon Regime"</a>. I gave a similar talk at DATE 2014 in Dresden, Germany.<br><br>
+ Here is some <a href="https://web.archive.org/web/20260215182737/http://www.eejournal.com/archives/articles/20140410-date/">press in the EE Journal Blog</a>.
+
+</td></tr><tr><td><b>Jan 2014</b></td><td>Article in <a href="https://web.archive.org/web/20260215182737/http://www.datacenterknowledge.com/archives/2014/01/21/bitcoin-infrastructure-mining-data-center/3/">Data Center Knowledge</a> discussing my Bitcoin CASES paper.
+<br><br>
+
+</td></tr><tr><td><b>Dec 2013</b></td><td> I helped a reporter from the <b>New York Times</b>, Nathaniel Popper, as he deliberated on whether to fly to Iceland to meet a stranger and view their installation! He put together <a href="https://web.archive.org/web/20260215182737/http://dealbook.nytimes.com/2013/12/21/into-the-bitcoin-mines/">this great story</a> on recent developments in Bitcoin mining.  (I am quoted a few times.)<br><br>
+
+Also quoted in a <a href="https://web.archive.org/web/20260215182737/http://venturebeat.com/2013/12/22/nyt-how-a-programmer-paid-6m-in-bitcoin-for-two-pizzas-and-other-tales-from-the-digital-currency-mines/">Venture Beat article</a>.
+
+</td></tr><tr><td><b>Oct 2013</b></td><td> Because of some of my Bitcoin knowledge, a few newspapers, radio shows, and a TV show <b>interviewed me about Bitcoin, Tor and the Silk Road takedown</b>:
+<br><br>
+<table>
+<tbody><tr><td><b>Al Jazeera America</b> <br> (Live National TV)<br><br>
+    </td><td><table><tbody><tr><td>  <img width="200" src="./index_files/mt_daily_news.png" alt="MBT on News Show"> </td><td>  <a href="https://web.archive.org/web/20260215182737/http://cseweb.ucsd.edu/~mbtaylor/news-cycle.html"><i>Consider This</i> with Antonio Mora<br><br> (15 min TV spot)</a></td></tr></tbody></table>
+    </td><td>10/3/13 
+</td></tr><tr><td><b>Baltimore Sun</b><br><br>
+    </td><td><a href="https://web.archive.org/web/20260215182737/http://www.baltimoresun.com/news/maryland/sun-investigates/bs-md-silk-road-tech-20131006,0,1970642.story">Silk Road arrest exposes a hidden Internet</a>
+    </td><td>10/6/13
+</td></tr><tr><td><b> UK Telegraph</b><br><br>
+     </td><td><a href="https://web.archive.org/web/20260215182737/http://www.telegraph.co.uk/news/worldnews/northamerica/usa/10356444/Hit-men-drugs-and-the-fall-of-Ross-Ulbricht-the-Silk-Road-mastermind.html">Hit men, drugs and the fall of Ross Ulbricht, the Silk Road 'mastermind'</a>
+     </td><td>10/4/13
+</td></tr><tr><td><b>95.7 KJR: Bob Rivers &nbsp; &nbsp; &nbsp; </b><br><br>
+    </td><td><a href="https://web.archive.org/web/20260215182737/http://www.957kjr.com/media/podcast-the-bob-rivers-show-podcast-bobriverspodcast/part-4-october-3rd-2013-the-23795072/">Professor Michael B Taylor on the end of Silk Road (10 min spot)</a>
+    </td><td>10/3/13 
+</td></tr><tr><td><b>Los Angeles Times</b>
+    </td><td><a href="https://web.archive.org/web/20260215182737/http://www.latimes.com/business/la-fi-silk-road-bitcoin-20131003,0,7857459.story">End of Silk Road for drug users as FBI shuts down illicit site</a> <br> <i><font size="-2">Note: Misquoted. Didn't say "disagree with his con";<br> I said "we are uneasy with the moral implications of his actions." </font></i>
+    </td><td>10/2/13
+</td></tr><tr><td><b>Newcastle Herald</b><br><br>
+    </td><td><a href="https://web.archive.org/web/20260215182737/http://www.theherald.com.au/story/1822116/the-end-of-the-silk-road-paved-with-gold/?cs=5">The end of the Silk Road paved with gold</a>
+    </td><td>10/5/13
+</td></tr><tr><td><b>Times of Mumbai</b><br><br>
+    </td><td><a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/Hit%20men,%20drugs%20and%20the%20fall%20of%20Ross%20Ulbricht,%20the%20Silk%20Road%20%E2%80%98mastermind%E2%80%99">Hit men, drugs and the fall of Ross Ulbricht</a>
+    </td><td>10/4/13 
+</td></tr></tbody></table>
+
+
+</td></tr><tr><td><b>Sep 2013</b></td><td> I helped a reporter from the <b>Wall Street Journal</b> put together this <a href="https://web.archive.org/web/20260215182737/http://online.wsj.com/article/SB10001424127887324665604579079721277783300.html">front page article on Bitcoin mining</a>. 
+
+</td></tr><tr><td><b>Sep 2013 </b></td><td> New CASES paper, <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/bitcoin_taylor_cases_2013.pdf">Bitcoin and the Age of Bespoke Silicon</a>.
+
+</td></tr><tr><td><b>Sep 2013 </b></td><td> New IEEE Micro paper, A Landscape of the New Dark Silicon Design Regime.
+
+</td></tr><tr><td><b>May 2013</b></td><td> <table><tbody><tr><td>My PhD student, Jack Sampson </td><td> -&gt; tenure-track assistant professor @ <a href="https://web.archive.org/web/20260215182737/http://www.cse.psu.edu/~sampson/">Penn State</a>.
+</td></tr><tr><td>My PhD student, Saturnino Garcia </td><td> -&gt; tenure-track assistant professor @ <a href="https://web.archive.org/web/20260215182737/http://home.sandiego.edu/~sat/">University of San Diego</a>.  </td></tr></tbody></table>
+
+</td></tr><tr><td><b>Jan 2013</b></td><td> <table><tbody><tr><td> <a href="https://web.archive.org/web/20260215182737/http://www.src.org/program/starnet/c-far/"><img width="20%" align="middle" src="./index_files/CFar.jpg">DARPA StarNet's $28 Million C-FAR center. </a> </td></tr></tbody></table>
+
+
+</td></tr><tr><td><b>June 2012</b></td><td>I presented my paper <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/taylor_dark_silicon_horsemen_dac_2012.pdf">
+<b>Is Dark Silicon Useful?<br> <i>Harnessing the Four Horsemen of the Coming Dark Silicon Apocalypse</i></b></a> (<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/DAC_DaSi_Horsemen_2012_Slides_Final.pdf">slides</a>) at DAC 2012 and DaSi 2012.
+<br>
+<br>
+
+
+</td></tr><tr><td><b>November 2012</b></td><td>Quoted in this <a href="https://web.archive.org/web/20260215182737/http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=06353446">article</a> in the November 2012 IEEE Computer Magazine  on Exascale computing.
+</td></tr><tr><td><b>May 2012</b></td><td>Quoted right at the beginning of this <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/ProcessorMay2012.pdf">May 2012 IEEE Computer Magazine Article</a> on Dark Silicon, right after Bill Dally! GreenDroid and Conservation Cores get a big shout-out for being a key approach for attacking the Dark Silicon problem.
+
+</td></tr><tr><td><b>March 2011</b></td><td> GreenDroid IEEE Micro article, <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/GreenDroid_IEEE_Micro_2011.pdf"><i>The GreenDroid Mobile Application Processor: An Architecture for Silicon's Dark Future</i></a> now available!
+
+</td></tr><tr><td><b>Nov 2010</b></td><td> UCSD ACM Programming Team, which I coach, invited to Worlds in Egypt!
+
+
+
+
+</td></tr><tr><td><b>Aug 2010</b></td><td> We present our GreenDroid mobile application processor design at Hotchips! Our Hotchips work was the only academic talk in the entire conference.<br><br> Broad coverage in the media:
+
+<br><br>
+<hr>
+      <table cellpadding="5">
+
+
+
+       <tbody><tr><td>MIT Technology Review </td><td> <a href="https://web.archive.org/web/20260215182737/http://www.technologyreview.com/computing/37478/?p1=A4&amp;a=f">App-Specific Processors to Fight Dark Silicon.</a>
+        </td></tr><tr><td>EETimes </td><td> <a href="https://web.archive.org/web/20260215182737/http://www.eetimes.com/electronics-news/4206408/Android-processor-shines-light-on-dark-silicon">Android processor shines light on dark silicon.</a>
+        </td></tr><tr><td width="25%">San Diego Tribune </td><td> <a href="https://web.archive.org/web/20260215182737/http://www.signonsandiego.com/news/2010/sep/03/ucsd-new-technology-will-extend-smartphone-batter/">UCSD: New technology will extend smartphone battery life.</a>
+        </td></tr><tr><td>IEEE Spectrum </td><td> <a href="https://web.archive.org/web/20260215182737/http://spectrum.ieee.org/tech-talk/semiconductors/processors/greendroid-application-processor-will-battle-dark-silicon">GreenDroid Application Processor Will Battle Dark Silicon.</a>
+        </td></tr><tr><td>Register.co.uk </td><td> <a href="https://web.archive.org/web/20260215182737/http://www.theregister.co.uk/2010/06/28/hot_chips_22_preview/">CPU, GPU makers gussie up their wares for Hot Chips.</a>   
+        </td></tr><tr><td>EETimes Asia </td><td> <a href="https://web.archive.org/web/20260215182737/http://www.eetasia.com/ART_8800617556_499489_NT_e27d6253.HTM">UCSD researchers develop efficient app-specific cores.</a>
+        </td></tr><tr><td>Slashdot</td><td><a href="https://web.archive.org/web/20260215182737/http://hardware.slashdot.org/story/11/04/30/0051219/The-Fight-Against-Dark-Silicon">The Fight Against Dark Silicon.</a>
+      </td></tr><tr><td>ExtremeTech.com</td><td><a href="https://web.archive.org/web/20260215182737/http://www.extremetech.com/extreme/166413-post-post-pc-the-new-materials-tech-and-cpu-designs-that-will-revive-overclocking-and-enthusiast-computing">Post-post-PC:The new  materials, tech and CPU designs</a>
+	</td></tr><tr><td>Embedded Insights </td><td> <a href="https://web.archive.org/web/20260215182737/http://www.embeddedinsights.com/channels/2010/08/27/ucsd-turns-on-the-light-on-dark-silicon/">UCSD turns on the light on dark silicon.</a>
+       </td></tr><tr><td>Light Reading </td><td> <a href="https://web.archive.org/web/20260215182737/http://www.lightreading.com/document.asp?doc_id=196056&amp;">Chip Design Fights Smartphone Power Limits.</a>
+
+        </td></tr><tr><td>inhabitat </td><td> <a href="https://web.archive.org/web/20260215182737/http://inhabitat.com/2010/09/01/dark-silicon-could-boost-smartphone-battery-life-11-x/">'Dark Silicon' Could Boost Smartphone Battery Life 11X.</a>           
+
+  </td></tr><tr><td>Slashdot.org </td><td> <a href="https://web.archive.org/web/20260215182737/http://hardware.slashdot.org/story/11/04/30/0051219/The-Fight-Against-Dark-Silicon">The fight against dark silicon</a>
+        </td></tr></tbody></table>
+<hr>
+</td></tr><tr><td><b>May 2010</b></td><td> HOTCHIPS paper on our C-core-based chip accepted: <br> <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/HotChips2010-Goulding-final.pdf">GreenDroid: A Mobile Application Processor for a Future of Dark Silicon.</a><br>First conference publication to have dark silicon in the title.
+
+
+</td></tr><tr><td>
+<b>Nov 2009</b></td><td>  Just released <i>The San Diego Vision Benchmark Suite</i>, a benchmark for the vision application domain, written in MATLAB and clean C. 
+It's available at <a href="https://web.archive.org/web/20260215182737/http://cseweb.ucsd.edu/~mbtaylor/vision">parallel.ucsd.edu/vision</a>.
+
+</td></tr><tr><td><b>Nov 2009</b></td><td>  Our paper, <i>Conservation Cores: Reducing the Energy of Mature Computations</i>, was accepted into ASPLOS.<br>
+If you read one architecture paper this year, read this <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores.pdf">ASPLOS Paper</a>. First paper that describes the utilization wall that is the 
+source of dark silicon, and proposes that heterogeneity is the answer.
+
+
+</td></tr><tr><td><b>July 2009</b></td><td> Successfully passed the FAA written test and landed an airplane four times at Long Beach Airport (LGB)!
+
+</td></tr><tr><td><b>June 2009</b></td><td> National Science Foundation CAREER Award:  <a href="https://web.archive.org/web/20260215182737/http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=0846152">Energy-Efficient Parallel Architectures for Computer Vision</a>.
+</td></tr></tbody></table>
+
+<br>
+
+
+
+<h2>FAQ</h2>
+<hr>
+<b><i>Who came up with the term "dark silicon"?</i></b>
+<br><br>
+The first use of the term in print was a quote by Bob Metcalfe in March 1997 in the IEEE Internet Computing magazine. However
+he was referring to all of the sand in the world that has not yet been turned into chips!
+The first mention of the term I've seen in its current context was by ARM CTO Mike Muller at ARM techcon in October 2009. I've heard other folks
+say that the term was used by others in ARM and/or HiPeaC community earlier than then. Although ARM techcon happened
+after we had submitted our ASPLOS paper in Aug 2009 that discussed the utilization wall, 
+we thought it was genius and decided to use the term in the title of our immediately following 
+Hotchips 2010 paper.
+
+<br><br>       <b><i>How did our group arrive at the <i>utilization wall</i> which causes Dark Silicon, and specialization as an approach to attacking it?</i></b>
+<br><br> In 2003, I spent a few months reading 300+ <a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/isscc.org">ISSCC</a> 
+         and <a href="https://web.archive.org/web/20260215182737/http://www.his.com/~iedm/">IEDM</a> papers with the goal of comparing the (very different) IBM CMOS7SF
+       and Intel P858 fabrication processes as part of a Raw-versus-Pentium-3 section of the <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/raw_isca_2004.pdf">Raw ISCA paper</a> I was working on. 
+I was also trying to understand VLSI scaling better so that we could make better proofs about Raw's optimality.
+
+<br><br>In 2004, I was trying to come up with some ideas for research as a faculty member.
+I decided to analyze the scalability of multicore chips like Raw across process generations. Using skills picked up from the study
+I did for the Raw ISCA paper,
+I arrived at the conclusion that there was an <b><i>exponentially</i> worsening power issue with multicore scaling and that the problem
+was the utilization wall and the dark silicon it creates</b>. The analysis is the same as appears in our subsequent grant proposals and papers.
+<br><br>
+On the interview trail for faculty positions in 2005, I tried to sell the idea of the utilization wall
+one-on-one with interviewing faculty and further proposed that the "ugly chip" (a massively heterogeneous design) was
+a logical response.  Most everybody didn't believe me or thought it was a terrible idea (James Hoe of CMU, to his credit,
+thought it was interesting.). 
+ <br>  <br>In 2006, as brand new faculty members,
+Steve Swanson and I <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/cpa2006-descr-p1.pdf">cowrote a peer-reviewed 2006 NSF proposal</a> that 
+outlined the utilization wall and created a plan for exploring massively heterogeneous solutions.
+(Indeed, Steve named our analysis the
+utilization wall, and already himself had a CAREER award on software aspects of heterogeneity.) 
+<br><br>(Here is a <a href="https://web.archive.org/web/20260215182737/http://michaeltaylor.org/arsenal-snap-4-2007.html">April 2007 snapshot of our public website</a> talking about the utilization wall.)
+<br><br>After one round
+of rejection by peer review, the proposal was funded. The utilization wall
+appears in the <a href="https://web.archive.org/web/20260215182737/http://nsf.gov/awardsearch/showAward.do?AwardNumber=0811794">abstract of our NSF Award in July 2008.</a>
+<br><br>After
+many paper resubmissions, countless co-advising trials and tribulations, we 
+finally got the utilization wall in peer-reviewed academic literature <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/asplos_2010_ccores.pdf">in this March 2010 ASPLOS paper</a>.  <br>
+
+
+<br><h2><font color="#000077">MIT Raw Processor</font></h2><hr>
+
+<img src="./index_files/chip-16.jpg" align="left" alt="Raw Chip" hspace="20" vspace="15">
+
+As one of the lead students in the <a href="https://web.archive.org/web/20260215182737/http://cag.csail.mit.edu/raw">
+MIT Raw project</a>, I led the design and implementation
+of the Raw microprocessor, which targeted the leading VLSI technology of the time.
+I also contributed heavily to almost all of the software systems that we built to support the
+microprocessor. <br><br>
+
+Raw was one of the earliest fabricated  multicore processors, with 16 cores on a single die, back in 2002.
+
+The purpose of Raw was to demonstrate architectural solutions to scalability problems 
+in modern day microprocessors. The Raw architecture exposes the transistor resources
+of VLSI chips through the <font color="#0000FF"><i>tile</i></font> abstraction, the pin resources through the
+<font color="#0000FF"><i>I/O port</i></font> abstraction, and the wiring resources 
+through <font color="#0000FF"><i>on-chip networks</i></font>. Raw was commercialized into the <a href="https://web.archive.org/web/20260215182737/http://www.tilera.com/">Tilera TILE64 architecture</a>.
+<br>
+<br>Because the Raw architecture exposed the on-chip resources more effectively than existing
+sequential architectures (for instance the P6 micro-architecture, the basis of
+the Pentium-M), Raw was able to outperform Intel desktop
+processors, implemented with better process technology, across a variety of applications.
+<br><br>
+
+
+One of the key ideas that came out of the Raw research was the
+formulation of the <a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/Taylor-TPDS-05.pdf">Scalar
+Operand Network</a> (SON), a unique class of sub-nanosecond network
+responsible for routing operands between functional units and memories
+in a distributed microprocessor.
+<br><br> My team implemented the 16-tile Raw microprocessor, shown to
+the upper-left, in IBM's SA-27E 180 nm 6-layer Cu ASIC process. The
+18.2 mm x 18.2 mm chip was, at least at the time, the largest design
+that the IBM ASIC division had targeted for SA-27E. Each tile contains
+computing power equivalent to a single-issue pipelined processor.
+A supercomputer prototype, based on 4-chip boards, that scaled to 64 Raw chips (1024-issue) was
+constructed.
+<br>
+<br>
+More pictures are available <a href="https://web.archive.org/web/20260215182737/http://cag.csail.mit.edu/raw/gallery/index.html">here</a>.
+<br><br><br>
+
+
+
+
+<h2><font color="#000077">Technology Policy Advocacy</font></h2>
+<hr width="100%">
+
+<table>
+<tbody><tr><td width="130"></td><td>
+
+Here are my notes about <a href="https://web.archive.org/web/20260215182737/http://cseweb.ucsd.edu/~mbtaylor/news-cycle.html">Getting Interviewed as an Expert on TV</a>, based on my experiences getting interviewed by various newspapers, radio shows, and a live TV news program about Bitcoin and the Silk Road.
+<br><br>
+
+<a href="https://web.archive.org/web/20260215182737/https://bsg.ai/papers/superdmca.pdf">
+Testimony</a> regarding Massachusetts House Bill No. 2743, entitled <b>An Act to Improve Broadband and Internet Security</b>, <br> at
+Massachusetts Joint Committee On Criminal Justice on April 2, 2003.
+<br>
+<br>
+This testimony was <a href="https://web.archive.org/web/20260215182737/http://www.freedom-to-tinker.com/superdmca.html">referenced</a> by Ed Felton's <i>Freedom to Tinker</i> website and discussed 
+ in a <a href="https://web.archive.org/web/20260215182737/http://www.law.wfu.edu/prebuilt/IPLJ_4_2_Verga.pdf">law journal article</a>: 
+<br>
+<br>
+<i>"Super-DMCA" Statutes: Putting Hollywood in Charge of Internet Business</i>,<br> Matthew A. Verga, Wake Forest Intellectual Property Law Journal 104, May 2004.
+</td></tr></tbody></table>
+
+<h1>CSE MBT</h1>
+	
+<script src="./index_files/urchin.js.download" type="text/javascript">
+</script></td></tr></tbody></table></body></html>
